@@ -1,6 +1,7 @@
 body {
     background-color: rgb(23, 98, 133);
-    background-image: url("marcas_logos.png"); */
+    background-image: url("Grey\ Backgrounds\ free\ download.jpeg");
+    background-size: cover;
 }
 
 
@@ -69,4 +70,37 @@ body {
     text-align: center;
     top: 0%;
     left: 0%;
+}
+
+
+.login-botao-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.login-botao, .register-botao{
+    padding: 10px, 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-botao{
+    background-color: #2ecc71;
+    color: #fff;
+    margin-left: 10px;
+}
+
+
+.register-botao{
+    background-color: #2ecc71;
+    color: #fff;
+    margin-left: 10px;
+}
+
+.login-botao:hover, .register-botao:hover{
+    background-color: #2980b9;
+
 }

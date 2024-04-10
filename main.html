@@ -18,11 +18,7 @@
             <br>
             <input type="submit" value="Login">
             <input type="submit" value="Create Account" onclick="redirectToAccountPage()">
-            <script>
-                function redirectToAccountPage(){
-                    window.location.href="creataccount.html";
-                }
-            </script>
+            
             <br>
             <br>
             <a href="">Forgot the password?</a>
@@ -32,5 +28,23 @@
         </form>
         </div>
     </div>
+
+    <div class="login-botao-container">
+        <button class="login-botao" onclick="redirectToLoginPage()">Login</button>
+        <button class="register-botao" onclick="redirectToAccountPage()">Register</button>
+    </div>
+
+    <script>
+        function redirectToLoginPage(){
+            window.location.href="login.html";
+        }
+    </script>
+
+    <script>
+         function redirectToAccountPage(){
+             window.location.href="creataccount.html";
+         }
+    </script>
+
 </body>
 </html>
