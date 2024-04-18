@@ -1,0 +1,72 @@
+/* Estilo para o corpo da página */
+body {
+    text-align: center;
+    background-color: rgb(23, 98, 133);
+    background-image: url("backgorund_white.png");
+    background-size: cover;
+    color: black; /* Texto preto */
+    font-family: Arial, sans-serif; /* Fonte padrão */
+  }
+  
+  /* Estilo para o título principal */
+  h1 {
+    font-size: 36px; /* Tamanho maior para o título */
+    margin-top: 50px; /* Espaçamento superior aumentado */
+    text-transform: uppercase; /* Transforma o texto em maiúsculas */
+  }
+  
+  /* Estilo para o subtítulo */
+  h2 {
+    font-size: 24px; /* Tamanho maior para o subtítulo */
+    margin-bottom: 30px; /* Espaçamento inferior aumentado */
+  }
+  
+  /* Estilo para os links */
+  a {
+    text-decoration: none; /* Remove o sublinhado */
+    color: black; /* Cor preta */
+  }
+  
+  a:hover {
+    color: #666; /* Cor do texto ao passar o mouse */
+  }
+  
+  /* Estilo para as figuras */
+  figure {
+    display: inline-block;
+    margin: 10px;
+  }
+  
+  /* Estilo para as imagens */
+  img {
+    width: 200px; /* Define um tamanho fixo para todas as imagens */
+    height: auto; /* Permite que a altura seja ajustada automaticamente */
+    background-color: transparent; /* Define o fundo como transparente */
+    border-radius: 10px; /* Adiciona bordas arredondadas */
+  }
+  
+  /* Estilo para as legendas */
+  figcaption {
+    margin-top: 5px;
+  }
+  
+
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .overlay:hover {
+    opacity: 1;
+  }

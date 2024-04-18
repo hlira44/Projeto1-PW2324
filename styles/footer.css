@@ -1,0 +1,48 @@
+
+.site-footer {
+    background-color: #333; /* Cor de fundo da barra */
+    color: #fff; /* Cor do texto */
+    padding: 20px; /* Espaçamento interno */
+    text-align: center; /* Alinhamento do conteúdo */
+    position: fixed; /* Fixar o rodapé na página */
+    bottom: 0; /* Alinhar o rodapé na parte inferior */
+    width: 100%; /* Largura total */
+}
+
+/* Estilos para o conteúdo do rodapé */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilos para os ícones */
+.footer-icons {
+    display: flex;
+    align-items: center;
+    order: -1; /* Reorganiza a ordem para colocar os ícones à esquerda */
+}
+
+.footer-icons i {
+    font-size: 24px; /* Tamanho do ícone */
+    margin-right: 10px; /* Espaçamento entre os ícones */
+}
+
+/* Estilos para os links do rodapé */
+.footer-links {
+    display: flex;
+    align-items: center;
+}
+
+.footer-links a {
+    color: #fff; /* Cor do texto dos links */
+    text-decoration: none; /* Remover sublinhado */
+    margin: 0 10px; /* Espaçamento entre os links */
+}
+
+/* Estilizando os links do rodapé ao passar o mouse */
+.footer-links a:hover {
+    text-decoration: underline; /* Sublinhado ao passar o mouse */
+}
