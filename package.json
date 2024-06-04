@@ -1,0 +1,30 @@
+{
+  "name": "api-projeto",
+  "version": "1.0.0",
+  "description": "Primeiro teste de um api",
+  "main": "server.js",
+  "scripts": {
+    "test": "\"echo \\\"Error: no test specidfied\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hlira44/Projeto1-PW2324.git"
+  },
+  "keywords": [
+    "\"ws\"",
+    "\"primeiro\""
+  ],
+  "author": "Henrique Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hlira44/Projeto1-PW2324/issues"
+  },
+  "homepage": "https://github.com/hlira44/Projeto1-PW2324#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.3"
+  }
+}
