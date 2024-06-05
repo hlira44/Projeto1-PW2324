@@ -6,8 +6,10 @@ const express = require('express');
 
 const router = require('./routes/index');
 
-const app = express();
-app.use(bodyparser.json());
+
+
+const app = express();1
+app.use(bodyParser.json());
 app.use(cors());
 
 app.use('/api/', router);
