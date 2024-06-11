@@ -5,16 +5,22 @@ const cors = require('cors');
 const express = require('express');
 
 const router = require('./routes/index');
+const publicoRouter = require('./routes/publico');
+const privadoRouter = require('./routes/privado');
+const carrosRouter = require('./routes/carros');
 
 
 
-const app = express();1
+
+const app = express();
 app.use(bodyParser.json());
 app.use(cors());
+app.use(express.json());
 
 app.use('/api/', router);
+app.use('/api/carros', carrosRouter);
 
-const port = process.env.SERVER_PORT || 8080;
+const port = process.env.SERVER_PORT || 4242;
 app.listen(port, () => {
     console.log('Express server listening on port', port)
 });

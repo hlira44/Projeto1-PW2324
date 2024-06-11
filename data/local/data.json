@@ -1,0 +1,31 @@
+{
+    "marcas": [
+        {
+            "id": "1",
+             "Nome": "Ferrari",
+             "Modelo": "F14"
+             
+        },{
+            "id":"2",
+            "Nome": "Ferrari",
+            "Modelo": "F15"
+        }
+    ]
+}
+
+
+{
+    "carros":[
+        {
+            "id": "1",
+            "Nome": "Julieta",
+            "Detalhes": "asdads"
+
+        },{
+            "id": "2",
+            "Nome": "F55",
+            "Detalhes": "adasdasda"
+
+        }
+    ]
+}
