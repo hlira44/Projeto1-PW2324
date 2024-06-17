@@ -4,6 +4,7 @@
   "description": "Primeiro teste de um api",
   "main": "server.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "\"echo \\\"Error: no test specidfied\\\" && exit 1"
   },
   "repository": {
@@ -14,6 +15,9 @@
     "\"ws\"",
     "\"primeiro\""
   ],
+  "prisma": {
+    "schema": "data/prisma/schema.prisma"
+  },
   "author": "Henrique Silva",
   "license": "ISC",
   "bugs": {
@@ -21,6 +25,7 @@
   },
   "homepage": "https://github.com/hlira44/Projeto1-PW2324#readme",
   "dependencies": {
+    "@prisma/client": "^5.15.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",

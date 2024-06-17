@@ -1,45 +1,96 @@
-const fs = require('fs');
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient()
 
-//devolve todos os carros
+//return all cars
 exports.getAll = async (req, res) => {
-    //return res.send("Aqui devolve todos os carros.");
-    //ler o ficheiro local
-    const datajson = fs.readFileSync("data/local/data.json", "utf-8");
-    //parse do json
-    const data = JSON.parse(datajson);
-    //devolver os carros
-    return res.send(data.carros);
+    try {
+        //read all cars from database
+        const response = await prisma.Carros.findMany();
+        res.status(200).json(response)
+    } catch (error) {
+        res.status(500).json({ msg: error.message })
+    }
 }
 
-//devolve o carro com o id
+//return cars by his id (student number)
 exports.getById = async (req, res) => {
-    //obter o id do carro
-    const id = req.params.id;
-    //ler o ficheiro local
-    return res.send("Aqui devolve o carro com dddid=${id}");
+    //get student id requested
+    const id = req.params.number;
+    try {
+        //finds cars by his id (number)
+        const response = await prisma.Carros.findUnique({
+            where: {
+                id: Number(id),
+            },
+        })
+        //return student
+        res.status(200).json(response)
+    } catch (error) {
+        res.status(404).json({ msg: error.message })
+    }
 }
 
-//cria um carro
+//creates cars
 exports.create = async (req, res) => {
-    //obter o carro pelas características enviadas
-    const {id, Nome, Detalhes} = req.body;
-    return res.status(201).send("Aqui cria um carro.");
+    //get requested cars properties
+    const { marca, detalhes, foto } = req.body;
+
+    console.log(marca);
+    try {
+        //creates new student
+        const student = await prisma.Carros.create({
+            data: {
+                Marca: marca,
+                Detalhes: detalhes,
+                Foto: foto,
+            },
+        })
+        //return car created
+        res.status(201).json(student)
+    } catch (error) {
+        res.status(400).json({ msg: error.message })
+    }
 }
 
-
-//atualiza o carro
+//updates student
 exports.update = async (req, res) => {
-    //obter o carro pelas características enviadas
-    const {id, Nome, Detalhes} = req.body;
-    return res.send("Aqui atualiza-se o carro.");
-   
+    const { id, marca, detalhes, foto } = req.body;
+
+    try {
+        //find student to update their data
+        const student = await prisma.Carros.update({
+            where: {
+                id: Number(id),
+            },
+            data: {
+                Marca: marca,
+                Detalhes: detalhes,
+                Foto: foto,
+            },
+        })
+        //return car updated
+        res.status(200).json(student)
+    } catch (error) {
+        res.status(400).json({ msg: error.message })
+    }
 }
 
-
-
-
-//apaga o carro com o id
+//delete carro
 exports.delete = async (req, res) => {
+    //get student number requested
     const id = req.params.id;
-    return res.send("Aqui apaga-se um carro por id.");
+    try {
+        //delete student
+        await prisma.Carros.delete({
+            where: {
+                id: Number(id),
+            },
+        })
+        //just return ok
+        res.status(200).send("Carro eliminado!");
+    } catch (error) {
+        res.status(400).json({ msg: error.message })
+    }
 }
+
+

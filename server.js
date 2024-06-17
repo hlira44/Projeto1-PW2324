@@ -8,6 +8,7 @@ const router = require('./routes/index');
 const publicoRouter = require('./routes/publico');
 const privadoRouter = require('./routes/privado');
 const carrosRouter = require('./routes/carros');
+const marcasRouter = require('./routes/marcas');
 
 
 
@@ -19,6 +20,7 @@ app.use(express.json());
 
 app.use('/api/', router);
 app.use('/api/carros', carrosRouter);
+app.use('/api/marcas', marcasRouter);
 
 const port = process.env.SERVER_PORT || 4242;
 app.listen(port, () => {
