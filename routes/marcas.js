@@ -1,6 +1,5 @@
 const marcasRouter = require('express').Router();
 const controller = require('../controllers/marcas');
-
 const middleware = require('../utils/middleware');
 
 marcasRouter.use(middleware);

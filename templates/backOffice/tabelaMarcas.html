@@ -154,7 +154,7 @@
 
         fetch('http://localhost:4243/api/marcas/update', {
             method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json', "Authorization": "Bearer " + token },
             body: JSON.stringify(dados)
         })
             .then(response => {
@@ -182,7 +182,7 @@
 
         fetch('http://localhost:4243/api/marcas/create', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json', "Authorization": "Bearer " + token },
             body: JSON.stringify(dados)
         })
             .then(response => {
@@ -205,7 +205,7 @@
     const apagaMarca = async () => {
         fetch('http://localhost:4243/api/marcas/delete' + id, {
             method: 'DELETE',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json', "Authorization": "Bearer " + token },
         })
             .then((response) => {
                 if (!response.ok) {

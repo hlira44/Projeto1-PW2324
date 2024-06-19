@@ -165,6 +165,13 @@
         let strHtml = ``
         const response = await fetch('http://localhost:4243/api/carros/')
         const lv = await response.json()
+
+        var dados = {
+           // id: document.getElementById("mId").value,
+            marca: document.getElementById("mMarca").value,
+            detalhes: document.getElementById("mDetalhes").value,
+            foto: document.getElementById("mFoto").value,
+        };
        
 
         fetch('http://localhost:4243/api/carros/update', {
@@ -245,7 +252,7 @@
     const apagaCarro = async () => {
             fetch("http://localhost:4243/api/carros/delete/" + id, {
             method: "DELETE",
-            headers: { "Content-Type": "application/json" },
+            headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token },
             })
             .then((response) => {
                 // Verifica se a resposta foi bem sucedida
