@@ -15,8 +15,8 @@
     <div class="container">
         <div class="row p-5 d-flex align-items-center">
             <div class="col-12 col-lg-6 p-2">
-                <img src="car-care-e-modelo-de-logotipo-de-servicos-de-carro_1195-868.avif" class="img-thumbnail"
-                    style="border: 1px solid #0a4c88;">
+                <img src="./imagens/car-care-e-modelo-de-logotipo-de-servicos-de-carro_1195-868.avif"
+                    class="img-thumbnail" style="border: 1px solid #0a4c88;">
             </div>
             <div class="col-12 col-lg-6 d-flex align-items-center p-2 mb-5" style="background-color: #0a4c88;">
                 <form class="p-5 text-light">
@@ -24,21 +24,22 @@
                         <h3>Login</h3>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
                         <div id="emailHelp" class="form-text text-light">We'll never share your email with anyone else.
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
+                        <label for="pwd" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="pwd">
                     </div>
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">Check me out</label>
                     </div>
-                    <button type="button" class="btn btn-success" onclick="redirectToIndexPage()">Login</button>
-                    <button type="button" class="btn btn-secondary" onclick="redirectToAccountPage()">Register Account</button>
+                    <button type="button" class="btn btn-success" onclick="validaLogin()">Login </button>
+                    <button type="button" class="btn btn-secondary" onclick="redirectToAccountPage()">Register
+                        Account</button>
 
                     <button type="button" class="btn btn-warning" data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop">
@@ -83,8 +84,8 @@
                                 aria-describedby="emailHelp">
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
-                        
-                        
+
+
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
@@ -100,19 +101,49 @@
             window.location.href = "creataccount.html";
         }
 
+    </script>
+
+    <script type="text/JavaScript">
+            //Função para validar o login
+            const validaLogin = async () => {
+                var dados = {
+                    email: document.getElementById("email").value,
+                    password: document.getElementById("pwd").value,
+                };
+                const response = await fetch("http://localhost:4243/api/auth/signin", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(dados),
+                })
+                console.log(response.ok);
+                dados= await response.json()
+                if(!response.ok){
+                    alert("Erro ao fazer login");
+                }else{
+                    alert("Login efetuado com sucesso!");
+                    console.log(dados);
+                    //Guardar o token no local storage
+                    localStorage.setItem("token", dados.token);
+                    window.location.href = "Index.html"
+                }
+            }
+
+            const checkToken = () => {
+                const token = localStorage.getItem("token");
+
+                if(token){
+                    window.location.href = "index.html";
+                }
+            }
+
+            checkToken();
         </script>
-
-        <script>
-            function redirectToIndexPage() {
-                window.location.href = "index.html";
-        }
-
-        </script>
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
         </script>
 </body>
+
 </html>

@@ -12,10 +12,27 @@ exports.getAll = async (req, res) => {
     }
 }
 
+exports.getByBrand = async (req, res) => {
+    //get student id requested
+    const brand = req.params.brand;
+    try {
+        //finds cars by his id (number)
+        const response = await prisma.Carros.findMany({
+            where: {
+                Marca: brand,
+            },
+        })
+        //return student
+        res.status(200).json(response)
+    } catch (error) {
+        res.status(404).json({ msg: error.message })
+    }
+}
+
 //return cars by his id (student number)
 exports.getById = async (req, res) => {
     //get student id requested
-    const id = req.params.number;
+    const id = req.params.id;
     try {
         //finds cars by his id (number)
         const response = await prisma.Carros.findUnique({

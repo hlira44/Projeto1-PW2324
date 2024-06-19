@@ -22,9 +22,17 @@ model Carros {
 }
 
 
-model Marca {
+model marcas {
   id      Int     @id @default(autoincrement())
   Nome    String 
   Modelo  String
   Logo    String
+}
+
+model Users {
+  id      Int     @id @default(autoincrement())
+  name String @db.VarChar(255)
+  email String @unique
+  password String
+  isAdmin Boolean @default(false)
 }

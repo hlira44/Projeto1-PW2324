@@ -132,8 +132,16 @@
 
 <script>
     const listarCarros = async () => {
+        const token = localStorage.getItem("token");
+
         let strHtml = ``
-        const response = await fetch('http://localhost:4243/api/carros')
+        const response = await fetch('http://localhost:4243/api/carros', { method: "GET",
+          headers: {
+              "Content-Type": "application/json",
+              "Authorization": "Bearer " + token
+          }});
+
+
         const lv = await response.json()
         for (const artigo of lv) {
             strHtml += `
@@ -190,6 +198,9 @@
 
 
     const novoCarro = async () => {
+        const token = localStorage.getItem("token");
+        
+
         var dados = {
            // id: document.getElementById("mId").value,
             marca: document.getElementById("mMarca").value,
@@ -199,7 +210,7 @@
 
         fetch('http://localhost:4243/api/carros/create', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json', "Authorization": "Bearer " + token },
             body: JSON.stringify(dados)
         })
             .then(response => {

@@ -2,7 +2,7 @@
 body {
     text-align: center;
     background-color: rgb(23, 98, 133);
-    background-image: url("backgorund_white.png");
+    background-image: url("./imagens/backgorund_white.png");
     background-size: cover;
     color: black; /* Texto preto */
     font-family: Arial, sans-serif; /* Fonte padrão */

@@ -118,16 +118,22 @@
 
 <script>
     const listarMarcas = async () => {
+        const token = localStorage.getItem("token");
+
         let strHtml = ``
-        const response = await fetch('http://localhost:4243/api/marcas')
+        const response = await fetch('http://localhost:4243/api/marcas/', { method: "GET",
+          headers: {
+              "Content-Type": "application/json",
+              "Authorization": "Bearer " + token
+          }});
         const lv = await response.json()
         for (const artigo of lv) {
             strHtml += `
                 <tr>
                     <td>${artigo.id}</td>
-                    <td>${artigo.nome}</td>
-                    <td>${artigo.modelo}</td>
-                    <td>${artigo.logo}</td>
+                    <td>${artigo.Nome}</td>
+                    <td>${artigo.Modelo}</td>
+                    <td>${artigo.Logo}</td>
                     <td>
                         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#upModal" onclick="preparaEditMarca(${artigo.id})"><i class="fa fa-pencil"></i> Editar</button>
                         <button type='button' class='btn btn-danger' onclick="apagaMarca(${artigo.id})"><i class="fa fa-trash"></i> Apagar</button>
@@ -138,6 +144,8 @@
         document.getElementById("cardMarcas").innerHTML = strHtml;
     }
     listarMarcas();
+
+
 
     const atualizarMarcas = async () => {
         let strHtml = ``

@@ -2,7 +2,7 @@ body {
     font-family: 'Roboto Slab', serif; /* Adicionando a fonte Roboto Slab para um estilo mais rústico */
     margin: 0;
     padding: 0;
-    background-image: url("backgorund_white.png");
+    background-image: url("./imagens/backgorund_white.png");
 }
 
 header {
