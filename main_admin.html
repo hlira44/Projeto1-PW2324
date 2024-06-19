@@ -47,8 +47,8 @@
                     </button>
 
                     <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop" onclick="redirectToAdminPage()">
-                        Admin Mode
+                        data-bs-target="#staticBackdrop" onclick="redirectToMainPage()">
+                        User Mode
                     </button>
 
                 </form>
@@ -105,11 +105,11 @@
         function redirectToAccountPage() {
             window.location.href = "creataccount.html";
         }
-        
-        function redirectToAdminPage() {
-            window.location.href = "main_admin.html";
+
+        function redirectToMainPage() {
+            window.location.href = "main.html";
         }
-        
+
     </script>
 
     <script type="text/JavaScript">
@@ -119,7 +119,7 @@
                     email: document.getElementById("email").value,
                     password: document.getElementById("pwd").value,
                 };
-                const response = await fetch("http://localhost:4243/api/auth/signin", {
+                const response = await fetch("http://localhost:4243/api/auth_admin/signin", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
